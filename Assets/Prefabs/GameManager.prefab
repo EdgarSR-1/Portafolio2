@@ -9,9 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7953238201484690073}
+  - component: {fileID: 8882196764704038146}
   - component: {fileID: 1383154349409728600}
   - component: {fileID: 6951048215324497947}
   - component: {fileID: 1672717195212217707}
+  - component: {fileID: 5945034991530228148}
+  - component: {fileID: 5194442599998225451}
+  - component: {fileID: 2724173455337221373}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -34,6 +38,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8882196764704038146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983049533427106672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384f345e715a29f149ca8f2c3a7b127d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::gameManager
 --- !u!114 &1383154349409728600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +84,14 @@ MonoBehaviour:
   gameCamera: {fileID: 0}
   maxAmmo: 6
   tiempoRecarga: 1.5
+  crosshair: {fileID: 0}
+  iconos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1672717195212217707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +105,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vidas
   vidasMax: 3
+--- !u!114 &5945034991530228148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983049533427106672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5381f3b5962ec2ffb3046ef9c4ddbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
+--- !u!114 &5194442599998225451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983049533427106672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b8dce6f5bfbe3d394dd3bbae4b971f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Puntaje
+--- !u!114 &2724173455337221373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983049533427106672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef8f55cdfbc075df9985de281c523c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverManager
+  gameOverPanel: {fileID: 0}

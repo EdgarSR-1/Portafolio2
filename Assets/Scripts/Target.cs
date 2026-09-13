@@ -6,7 +6,8 @@ public class Target : MonoBehaviour
     // referencias para daño al jugador
     [SerializeField] private SpriteRenderer spriteRenderer;
     // [SerializeField] private Vidas vidas;
-    private Vidas vidas;
+    // private Vidas vidas;
+    private gameManager gameManager;
     
     // no se deberia de necesitar - borrar despues
     // [SerializeField] private Collider2D colliderEnemigo;
@@ -18,6 +19,8 @@ public class Target : MonoBehaviour
     // para cuando muere un enemigo
     [SerializeField] private float duracionCaida = 0.5f;
     [SerializeField] private float anguloCaida = 90f;
+    // private Puntaje puntosManager;
+    [SerializeField] private int puntosDar = 100;
 
     private Collider2D enemigo;
 
@@ -36,7 +39,9 @@ public class Target : MonoBehaviour
         // necesito esto porque el enemigo es un prefab y no me
         // deja agregarle el script que esta en gameManager
         // manualmente
-        vidas = FindFirstObjectByType<Vidas>();
+        // vidas = FindFirstObjectByType<Vidas>();
+        // puntosManager = FindFirstObjectByType<Puntaje>();
+        gameManager = FindFirstObjectByType<gameManager>();
     }
 
     private void Update()
@@ -70,7 +75,7 @@ public class Target : MonoBehaviour
 
     private void Atacar()
     {
-        vidas.TomarDaño();
+        gameManager.vidas.TomarDaño();
 
         ResetTiempo();
     }
@@ -83,11 +88,14 @@ public class Target : MonoBehaviour
 
     public void Hit()
     {
-        if (isDead) return;
+        if (isDead) { return; }
 
         isDead = true;
 
         enemigo.enabled = false;
+
+        // puntosManager.AgregarPuntos(puntosDar);
+        gameManager.puntos.AgregarPuntos(puntosDar);
 
         StartCoroutine(Muerte());
     }

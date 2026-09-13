@@ -10,7 +10,16 @@ public class DisparoControl : MonoBehaviour
     [SerializeField] private int maxAmmo = 6;
     [SerializeField] private float tiempoRecarga = 1.5f;
 
+    // para las animaciones
+    [SerializeField] private ControlCrosshair crosshair;
+    [SerializeField] private GameObject[] iconos;
+
     private int municionActual;
+
+    // para que lo pueda leer mi UI
+    public int MunicionActual => municionActual;
+    // public int MaxAmmo => maxAmmo; 
+
     private bool isReloading;
 
     private void Start()
@@ -31,29 +40,6 @@ public class DisparoControl : MonoBehaviour
         }
     }
 
-    // private void Disparo()
-    // {
-    //     // para sacar posicion de mouse
-    //     Vector2 mousePos = Mouse.current.position.ReadValue();
-
-    //     // para obtener posicion en el mapa
-    //     Vector3 mundoPos = gameCamera.ScreenToWorldPoint(
-    //         new Vector3(mousePos.x, mousePos.y, -gameCamera.transform.position.z)
-    //     );
-
-    //     Collider2D hit = Physics2D.OverlapPoint(mundoPos);
-
-    //     if (hit != null)
-    //     {
-    //         Target target = hit.GetComponent<Target>();
-            
-    //         if (target != null)
-    //         {
-    //             target.Hit();
-    //         }
-    //     }
-    // }
-
     private void tryDisparo()
     {
         if (isReloading) return;
@@ -65,7 +51,10 @@ public class DisparoControl : MonoBehaviour
         }
 
         municionActual--;
-        Debug.Log($"Municion: {municionActual}/{maxAmmo}");
+        iconos[municionActual].SetActive(false);
+        crosshair.Disparo();
+        
+        // Debug.Log($"Municion: {municionActual}/{maxAmmo}");
 
         Disparo();
     }
@@ -108,7 +97,7 @@ public class DisparoControl : MonoBehaviour
 
         if (frenteMax == null)
         {
-            Debug.Log("Fallo");
+            // Debug.Log("Fallo");
             return;
         }
 
@@ -124,6 +113,14 @@ public class DisparoControl : MonoBehaviour
         }
     }
 
+    // private void OcultarIconos()
+    // {
+    //     for (int i = 0; i < iconos.Length; i++)
+    //     {
+    //         iconos[i].SetActive(false);
+    //     }
+    // }
+
     private IEnumerator Recarga()
     {
         if(isReloading) yield break;
@@ -132,7 +129,17 @@ public class DisparoControl : MonoBehaviour
 
         Debug.Log("Recargando");
 
-        yield return new WaitForSeconds(tiempoRecarga);
+        float tiempoPorBala = tiempoRecarga / maxAmmo;
+
+        crosshair.RecargaRotacion(tiempoRecarga);
+
+        // yield return new WaitForSeconds(tiempoRecarga);
+
+        for (int i = 0; i < maxAmmo; i ++)
+        {
+            yield return new WaitForSeconds(tiempoPorBala);
+            iconos[i].SetActive(true);
+        }
 
         municionActual = maxAmmo;
 
