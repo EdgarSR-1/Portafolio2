@@ -5,6 +5,8 @@ public class Target : MonoBehaviour
 {
     // referencias para daño al jugador
     [SerializeField] private SpriteRenderer spriteRenderer;
+    // para obtener el segundo sprite
+    [SerializeField] private Sprite spriteCaida;
     // [SerializeField] private Vidas vidas;
     // private Vidas vidas;
     private gameManager gameManager;
@@ -18,7 +20,7 @@ public class Target : MonoBehaviour
 
     // para cuando muere un enemigo
     [SerializeField] private float duracionCaida = 0.5f;
-    [SerializeField] private float anguloCaida = 90f;
+    // [SerializeField] private float anguloCaida = 90f;
     // private Puntaje puntosManager;
     [SerializeField] private int puntosDar = 100;
 
@@ -100,11 +102,36 @@ public class Target : MonoBehaviour
         StartCoroutine(Muerte());
     }
 
+    // private IEnumerator Muerte()
+    // {
+    //     Quaternion rotacionInicio = transform.rotation;
+         
+    //     Quaternion rotacionFinal = rotacionInicio * Quaternion.Euler(0f, 0f, anguloCaida);
+
+    //     float tiempo = 0f;
+
+    //     while (tiempo < duracionCaida)
+    //     {
+    //         tiempo += Time.deltaTime;
+
+    //         float progreso = tiempo / duracionCaida;
+
+    //         transform.rotation = Quaternion.Lerp(rotacionInicio, rotacionFinal, progreso);
+
+    //         yield return null;
+    //     }
+
+    //     transform.rotation = rotacionFinal;
+
+    //     Destroy(gameObject);
+    // }
+
     private IEnumerator Muerte()
     {
-        Quaternion rotacionInicio = transform.rotation;
-         
-        Quaternion rotacionFinal = rotacionInicio * Quaternion.Euler(0f, 0f, anguloCaida);
+        spriteRenderer.sprite = spriteCaida;
+
+        Vector3 posicionInicial = transform.position;
+        Vector3 posicionFinal = posicionInicial + Vector3.down;
 
         float tiempo = 0f;
 
@@ -114,12 +141,14 @@ public class Target : MonoBehaviour
 
             float progreso = tiempo / duracionCaida;
 
-            transform.rotation = Quaternion.Lerp(rotacionInicio, rotacionFinal, progreso);
+            transform.position = Vector3.Lerp(
+                posicionInicial, posicionFinal, progreso
+            );
 
             yield return null;
         }
 
-        transform.rotation = rotacionFinal;
+        transform.position = posicionFinal;
 
         Destroy(gameObject);
     }

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: acfa7815753379de7b9f59978844e27d
+guid: be28767f2398d08c8b17108ef572d5a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1092110371768519499
-    second: enemigo_0
-  - first:
-      213: -7453102284560531026
-    second: enemigo_1
+      213: -3427443288308981933
+    second: boton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemigo_0
+      name: boton_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 21
-        height: 49
+        y: 9
+        width: 128
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b4b733376b08d0f0800000000000000
-      internalID: -1092110371768519499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemigo_1
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 0
-        width: 38
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea10e1ed5f2419890800000000000000
-      internalID: -7453102284560531026
+      spriteID: 35fdb881d764f60d0800000000000000
+      internalID: -3427443288308981933
       vertices: []
       indices: 
       edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemigo_0: -1092110371768519499
-      enemigo_1: -7453102284560531026
+      boton_0: -3427443288308981933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

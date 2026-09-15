@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: acfa7815753379de7b9f59978844e27d
+guid: a110c643e978776b8885bd885c8c31e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1092110371768519499
-    second: enemigo_0
+      213: -8557579309086435502
+    second: obstaculos_0
   - first:
-      213: -7453102284560531026
-    second: enemigo_1
+      213: -1594955483228083505
+    second: obstaculos_1
+  - first:
+      213: 8746832158407700598
+    second: obstaculos_2
+  - first:
+      213: -8848809552712142546
+    second: obstaculos_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemigo_0
+      name: obstaculos_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 21
-        height: 49
+        y: 4
+        width: 50
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b4b733376b08d0f0800000000000000
-      internalID: -1092110371768519499
+      spriteID: 2579ba855fe5d3980800000000000000
+      internalID: -8557579309086435502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemigo_1
+      name: obstaculos_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 0
-        width: 38
-        height: 45
+        x: 50
+        y: 4
+        width: 51
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +159,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea10e1ed5f2419890800000000000000
-      internalID: -7453102284560531026
+      spriteID: fcae0ad30749dd9e0800000000000000
+      internalID: -1594955483228083505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obstaculos_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 2
+        width: 55
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 670badf518df26970800000000000000
+      internalID: 8746832158407700598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obstaculos_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 51
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2172854896b23580800000000000000
+      internalID: -8848809552712142546
       vertices: []
       indices: 
       edges: []
@@ -173,8 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemigo_0: -1092110371768519499
-      enemigo_1: -7453102284560531026
+      obstaculos_0: -8557579309086435502
+      obstaculos_1: -1594955483228083505
+      obstaculos_2: 8746832158407700598
+      obstaculos_3: -8848809552712142546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

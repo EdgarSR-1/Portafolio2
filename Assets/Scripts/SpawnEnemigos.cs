@@ -5,20 +5,41 @@ public class SpawnEnemigos : MonoBehaviour
 {
     [SerializeField] private GameObject enemigoPrefab;
     [SerializeField] private SpawnOcupado[] spawnPoints;
+
+    // para dificultad
     [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float reduccion = 0.25f;
+    [SerializeField] private float intervalMin = 0.5f;
+
 
     private float spawnTimer;
+    private Timer gameTimer;
+
+    private void Start()
+    {
+        gameTimer = FindFirstObjectByType<Timer>();
+    }
 
     private void Update()
     {
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= spawnInterval)
+        float intervaloActual = ObtenerSpawnInterval();
+
+        if (spawnTimer >= intervaloActual)
         {
             EnemigoSpawn();
-
             spawnTimer = 0f;
         }
+    }
+
+    private float ObtenerSpawnInterval()
+    {
+        int nivelDificultad = Mathf.FloorToInt(gameTimer.Tiempo / 30f);
+
+        float intervalo = spawnInterval - (nivelDificultad * reduccion);
+
+        return Mathf.Max(intervalo, intervalMin);
     }
 
     private void EnemigoSpawn()
