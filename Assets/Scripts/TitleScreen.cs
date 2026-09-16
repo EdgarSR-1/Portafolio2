@@ -7,10 +7,14 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI puntuacionAltaTexto;
     [SerializeField] private TextMeshProUGUI mejorTiempoTexto;
 
+    // panel de instrucciones
+    [SerializeField] private GameObject panelInstrucciones;
+
     // private PersistenciaManager persistencia;
 
     private void Start()
     {
+        panelInstrucciones.SetActive(false);
         // persistencia = FindFirstObjectByType<PersistenciaManager>();
 
         // puntuacionAltaTexto.text = $"Mejor Puntuacion: {persistencia.PuntajeAlto}";
@@ -29,5 +33,15 @@ public class TitleScreen : MonoBehaviour
     public void Iniciar()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void AbrirInstrucciones()
+    {
+        panelInstrucciones.SetActive(true);
+    }
+
+    public void CerrarInstrucciones()
+    {
+        panelInstrucciones.SetActive(false);
     }
 }

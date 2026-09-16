@@ -24,6 +24,10 @@ public class Target : MonoBehaviour
     // private Puntaje puntosManager;
     [SerializeField] private int puntosDar = 100;
 
+    // sonido
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sonidoDisparo;
+
     private Collider2D enemigo;
 
     private bool isDead = false;
@@ -77,6 +81,7 @@ public class Target : MonoBehaviour
 
     private void Atacar()
     {
+        audioSource.PlayOneShot(sonidoDisparo);
         gameManager.vidas.TomarDaño();
 
         ResetTiempo();

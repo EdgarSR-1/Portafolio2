@@ -20,6 +20,11 @@ public class DisparoControl : MonoBehaviour
     public int MunicionActual => municionActual;
     // public int MaxAmmo => maxAmmo; 
 
+    // para audio
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sonidoDisparo;
+    [SerializeField] private AudioClip sonidoRecarga;
+
     private bool isReloading;
 
     private void Start()
@@ -53,6 +58,7 @@ public class DisparoControl : MonoBehaviour
         municionActual--;
         iconos[municionActual].SetActive(false);
         crosshair.Disparo();
+        audioSource.PlayOneShot(sonidoDisparo);
         
         // Debug.Log($"Municion: {municionActual}/{maxAmmo}");
 
@@ -139,6 +145,7 @@ public class DisparoControl : MonoBehaviour
         {
             yield return new WaitForSeconds(tiempoPorBala);
             iconos[i].SetActive(true);
+            audioSource.PlayOneShot(sonidoRecarga);
         }
 
         municionActual = maxAmmo;

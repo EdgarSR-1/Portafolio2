@@ -35,7 +35,7 @@ public class SpawnEnemigos : MonoBehaviour
 
     private float ObtenerSpawnInterval()
     {
-        int nivelDificultad = Mathf.FloorToInt(gameTimer.Tiempo / 30f);
+        int nivelDificultad = Mathf.FloorToInt(gameTimer.Tiempo / 15f); // cada 15 segundos sube
 
         float intervalo = spawnInterval - (nivelDificultad * reduccion);
 
