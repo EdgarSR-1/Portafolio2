@@ -10,11 +10,15 @@ public class TitleScreen : MonoBehaviour
     // panel de instrucciones
     [SerializeField] private GameObject panelInstrucciones;
 
+    // panel de creditos
+    [SerializeField] private GameObject panelCreditos;
+
     // private PersistenciaManager persistencia;
 
     private void Start()
     {
         panelInstrucciones.SetActive(false);
+        panelCreditos.SetActive(false);
         // persistencia = FindFirstObjectByType<PersistenciaManager>();
 
         // puntuacionAltaTexto.text = $"Mejor Puntuacion: {persistencia.PuntajeAlto}";
@@ -43,5 +47,15 @@ public class TitleScreen : MonoBehaviour
     public void CerrarInstrucciones()
     {
         panelInstrucciones.SetActive(false);
+    }
+
+    public void AbrirCreditos()
+    {
+        panelCreditos.SetActive(true);
+    }
+
+    public void CerrarCreditos()
+    {
+        panelCreditos.SetActive(false);
     }
 }
