@@ -10,9 +10,7 @@ public class UI : MonoBehaviour
     // Vidas
     [SerializeField] private GameObject[] vidas;
 
-    // moví balas para poder controlar la animacion cuando recargas
-    // Balas
-    // [SerializeField] private GameObject[] balas;
+    // quite actualizar balas para poder controlar la animacion cuando recargas
 
     private gameManager gameManager;
 
@@ -26,17 +24,14 @@ public class UI : MonoBehaviour
         ActualizarTiempo();
         ActualizarPuntaje();
         ActualizarVidas();
-        // ActualizarBalas();
     }
 
     private void ActualizarTiempo()
     {
-        // tiempoTexto.text = gameManager.timer.getTime();
         tiempoTexto.text = $"Tiempo: {gameManager.timer.getTime()}";
     }
     private void ActualizarPuntaje()
     {
-        // puntosTexto.text = gameManager.puntos.Puntos.ToString();
         puntosTexto.text = $"Puntos: {gameManager.puntos.Puntos}";
     }
 
@@ -49,14 +44,4 @@ public class UI : MonoBehaviour
             vidas[i].SetActive(i < vidasActuales);
         }
     }
-
-    // private void ActualizarBalas()
-    // {
-    //     int balasActuales = gameManager.disparo.MunicionActual;
-
-    //     for (int i = 0; i < balas.Length; i++)
-    //     {
-    //         balas[i].SetActive(i < balasActuales);
-    //     }
-    // }
 }
