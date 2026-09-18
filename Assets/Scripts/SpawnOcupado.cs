@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class SpawnOcupado : MonoBehaviour
 {
-    [Header("Parallax")]
+    // parallax
     [SerializeField] private Transform parallaxParent;
-    [Header("Sorting")]
+    
+    // para sorting: quiero que el enemigo este detras de su obstaculo respectivo
     [SerializeField] private  int enemySortOrder = 10;
 
     private GameObject enemigo;

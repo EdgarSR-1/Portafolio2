@@ -13,15 +13,10 @@ public class TitleScreen : MonoBehaviour
     // panel de creditos
     [SerializeField] private GameObject panelCreditos;
 
-    // private PersistenciaManager persistencia;
-
     private void Start()
     {
         panelInstrucciones.SetActive(false);
         panelCreditos.SetActive(false);
-        // persistencia = FindFirstObjectByType<PersistenciaManager>();
-
-        // puntuacionAltaTexto.text = $"Mejor Puntuacion: {persistencia.PuntajeAlto}";
 
         int puntuacionAlta = PlayerPrefs.GetInt("PuntosAlto", 0);
         float mejorTiempo = PlayerPrefs.GetFloat("MejorTiempo", 0f);
@@ -30,10 +25,10 @@ public class TitleScreen : MonoBehaviour
         int segundos = Mathf.FloorToInt(mejorTiempo % 60);
 
         puntuacionAltaTexto.text = $"Mejor Puntuacion: {puntuacionAlta}";
-
         mejorTiempoTexto.text = $"Mejor Tiempo: {minutos:00}:{segundos:00}";
     }
 
+    // todas las funciones para los botones en el menú :D
     public void Iniciar()
     {
         SceneManager.LoadScene(1);

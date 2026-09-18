@@ -3,7 +3,6 @@ using UnityEngine;
 public class Vidas : MonoBehaviour
 {
     [SerializeField] private int vidasMax = 3;
-    // [SerializeField] private Timer timer;
 
     private GameOverManager gameOverManager;
 
@@ -16,7 +15,6 @@ public class Vidas : MonoBehaviour
     private void Awake()
     {
         vidaActual = vidasMax;
-        // timer = GetComponent<Timer>();
         gameOverManager = GetComponent<GameOverManager>();
     }
 
@@ -32,14 +30,7 @@ public class Vidas : MonoBehaviour
 
         if (vidaActual <= 0)
         {
-            // GameOver();
             gameOverManager.GameOver();
         }
     }
-
-    // private void GameOver()
-    // {
-    //     timer.StopTimer();
-    //     Debug.Log("Game Over!");
-    // }
 }

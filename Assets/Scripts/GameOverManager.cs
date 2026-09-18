@@ -9,10 +9,6 @@ public class GameOverManager : MonoBehaviour
     // resultados
     [SerializeField] private TextMeshProUGUI puntaje;
     [SerializeField] private TextMeshProUGUI tiempo;
-
-    // tener persistencia en mejor tiempo y puntos
-    // private PersistenciaManager persistencia;
-    // mejor uso solo playerprefs directo - BORRAR
     
 
     private Timer timer;
@@ -22,7 +18,6 @@ public class GameOverManager : MonoBehaviour
     {
         timer = GetComponent<Timer>();
         puntosManager = GetComponent<Puntaje>();
-        // persistencia = GetComponent<PersistenciaManager>();
         gameOverPanel.SetActive(false);
     }
 
@@ -32,9 +27,6 @@ public class GameOverManager : MonoBehaviour
 
         int puntosFinal = puntosManager.Puntos;
         float tiempoFinal = timer.Tiempo;
-
-        // persistencia.GuardarPuntos(puntosFinal);
-        // persistencia.GuardarTiempo(tiempoFinal);
 
         int puntosPrev = PlayerPrefs.GetInt("PuntosAlto", 0);
 

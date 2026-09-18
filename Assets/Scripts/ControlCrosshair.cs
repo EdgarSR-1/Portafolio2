@@ -14,7 +14,6 @@ public class ControlCrosshair : MonoBehaviour
 
     private RectTransform crosshair;
     private float rotacionTarget;
-    private Coroutine rotacionCoroutine;
 
     private void Awake()
     {
@@ -78,6 +77,7 @@ public class ControlCrosshair : MonoBehaviour
 
     private IEnumerator AnimacionRecarga(float duracion)
     {
+        // quiero que de toda la vuelta al recargar :P
         float rotacionInicial = crosshair.localEulerAngles.z;
         float rotacionFinal = rotacionInicial + 360f;
 

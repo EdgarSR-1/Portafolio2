@@ -7,12 +7,7 @@ public class Target : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     // para obtener el segundo sprite
     [SerializeField] private Sprite spriteCaida;
-    // [SerializeField] private Vidas vidas;
-    // private Vidas vidas;
     private gameManager gameManager;
-    
-    // no se deberia de necesitar - borrar despues
-    // [SerializeField] private Collider2D colliderEnemigo;
 
     // para el ataque al jugador
     [SerializeField] private float tiempoAtaque = 5f;
@@ -45,8 +40,6 @@ public class Target : MonoBehaviour
         // necesito esto porque el enemigo es un prefab y no me
         // deja agregarle el script que esta en gameManager
         // manualmente
-        // vidas = FindFirstObjectByType<Vidas>();
-        // puntosManager = FindFirstObjectByType<Puntaje>();
         gameManager = FindFirstObjectByType<gameManager>();
     }
 
@@ -101,35 +94,10 @@ public class Target : MonoBehaviour
 
         enemigo.enabled = false;
 
-        // puntosManager.AgregarPuntos(puntosDar);
         gameManager.puntos.AgregarPuntos(puntosDar);
 
         StartCoroutine(Muerte());
     }
-
-    // private IEnumerator Muerte()
-    // {
-    //     Quaternion rotacionInicio = transform.rotation;
-         
-    //     Quaternion rotacionFinal = rotacionInicio * Quaternion.Euler(0f, 0f, anguloCaida);
-
-    //     float tiempo = 0f;
-
-    //     while (tiempo < duracionCaida)
-    //     {
-    //         tiempo += Time.deltaTime;
-
-    //         float progreso = tiempo / duracionCaida;
-
-    //         transform.rotation = Quaternion.Lerp(rotacionInicio, rotacionFinal, progreso);
-
-    //         yield return null;
-    //     }
-
-    //     transform.rotation = rotacionFinal;
-
-    //     Destroy(gameObject);
-    // }
 
     private IEnumerator Muerte()
     {

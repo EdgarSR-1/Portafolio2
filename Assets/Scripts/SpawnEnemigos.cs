@@ -33,6 +33,7 @@ public class SpawnEnemigos : MonoBehaviour
         }
     }
 
+    // que tan rapido spawnean / nivel de dificultad:
     private float ObtenerSpawnInterval()
     {
         int nivelDificultad = Mathf.FloorToInt(gameTimer.Tiempo / 15f); // cada 15 segundos sube
@@ -44,6 +45,7 @@ public class SpawnEnemigos : MonoBehaviour
 
     private void EnemigoSpawn()
     {
+        // que tenga spawns fijos y solo pueda aparecer 1 enemigo por spawn
         List<SpawnOcupado> spawnDisponible = new List<SpawnOcupado>();
 
         foreach (SpawnOcupado puntoSpawn in spawnPoints)

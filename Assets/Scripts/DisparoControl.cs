@@ -10,7 +10,7 @@ public class DisparoControl : MonoBehaviour
     [SerializeField] private int maxAmmo = 6;
     [SerializeField] private float tiempoRecarga = 1.5f;
 
-    // para las animaciones
+    // animaciones
     [SerializeField] private ControlCrosshair crosshair;
     [SerializeField] private GameObject[] iconos;
 
@@ -18,9 +18,8 @@ public class DisparoControl : MonoBehaviour
 
     // para que lo pueda leer mi UI
     public int MunicionActual => municionActual;
-    // public int MaxAmmo => maxAmmo; 
 
-    // para audio
+    // audio
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip sonidoDisparo;
     [SerializeField] private AudioClip sonidoRecarga;
@@ -77,10 +76,10 @@ public class DisparoControl : MonoBehaviour
 
         Collider2D[] hits = Physics2D.OverlapPointAll(mundoPos);
 
-        if (hits.Length == 0)
-        {
-            Debug.Log("Fallo");
-        }
+        // if (hits.Length == 0)
+        // {
+        //     Debug.Log("Fallo");
+        // }
 
         Collider2D frenteMax = null;
 
@@ -113,19 +112,11 @@ public class DisparoControl : MonoBehaviour
         {
             target.Hit();
         }
-        else
-        {
-            Debug.Log("Bloqueado por: " + frenteMax.name);
-        }
+        // else
+        // {
+        //     Debug.Log("Bloqueado por: " + frenteMax.name);
+        // }
     }
-
-    // private void OcultarIconos()
-    // {
-    //     for (int i = 0; i < iconos.Length; i++)
-    //     {
-    //         iconos[i].SetActive(false);
-    //     }
-    // }
 
     private IEnumerator Recarga()
     {
@@ -133,7 +124,7 @@ public class DisparoControl : MonoBehaviour
 
         isReloading = true;
 
-        Debug.Log("Recargando");
+        // Debug.Log("Recargando");
 
         float tiempoPorBala = tiempoRecarga / maxAmmo;
 
@@ -152,6 +143,6 @@ public class DisparoControl : MonoBehaviour
 
         isReloading = false;
 
-        Debug.Log($"Recarga completa. Municion: {municionActual}/{maxAmmo}");
+        // Debug.Log($"Recarga completa. Municion: {municionActual}/{maxAmmo}");
     }
 }

@@ -1375,7 +1375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076294, y: 231}
+  m_AnchoredPosition: {x: 0.00000095367, y: 280}
   m_SizeDelta: {x: 645.27, y: 45.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883288917
@@ -2045,7 +2045,7 @@ Transform:
   m_GameObject: {fileID: 1157361329}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -442.77396, y: 164.09, z: -4842}
+  m_LocalPosition: {x: -483.7, y: 178, z: -4842}
   m_LocalScale: {x: 807, y: 807, z: 53.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2136,7 +2136,7 @@ Transform:
   m_GameObject: {fileID: 1271285329}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -447.61597, y: -45.73, z: -4842}
+  m_LocalPosition: {x: -485, y: -149, z: -4842}
   m_LocalScale: {x: 807, y: 807, z: 53.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2509,7 +2509,7 @@ Transform:
   m_GameObject: {fileID: 1369776118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -440.084, y: 73.706, z: -4842}
+  m_LocalPosition: {x: -481.4, y: 65, z: -4842}
   m_LocalScale: {x: 1076, y: 1076, z: 53.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2777,8 +2777,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.9, y: 21}
-  m_SizeDelta: {x: 885.64, y: 345.47}
+  m_AnchoredPosition: {x: 51, y: 15}
+  m_SizeDelta: {x: 885.64, y: 408.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1683161236
 MonoBehaviour:
@@ -2808,10 +2808,12 @@ MonoBehaviour:
     Elimina a los
     soldados realistas antes de que te ataquen
 
-    Sobrevive lo mas que puedas con
-    3 vidas
+
+    Sobrevive lo mas que puedas
+    con 3 vidas
 
     Los enemigos te atacan si sobreviven demasiado tiempo
+
 
     Recarga
     dando click cuando se gasten todas tus balas
@@ -2819,6 +2821,7 @@ MonoBehaviour:
 
     Sobrevive el mayor tiempo
     posible
+
 
     La dificultad aumenta con el tiempo'
   m_isRightToLeft: 0
@@ -2936,7 +2939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -213.29}
+  m_AnchoredPosition: {x: 0, y: -270}
   m_SizeDelta: {x: 293.61, y: 111.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1723282896
@@ -3462,7 +3465,7 @@ Transform:
   m_GameObject: {fileID: 2026721143}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -443.85, y: -126.42999, z: -4842}
+  m_LocalPosition: {x: -481.4, y: -49, z: -4842}
   m_LocalScale: {x: 807, y: 807, z: 53.8}
   m_ConstrainProportionsScale: 0
   m_Children: []

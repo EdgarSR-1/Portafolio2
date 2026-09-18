@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class ControlCamara : MonoBehaviour
 {
-    [Header("Movement")]
+    // para el movimiento
     [SerializeField] private float maxMoveSpeed = 8f;
 
     [SerializeField] private float deadZone = 0.1f;
 
-    [Header("World Bounds")]
+    // bounds para la camara
     [SerializeField] private Vector2 minBounds;
 
     [SerializeField] private Vector2 maxBounds;
@@ -44,11 +44,13 @@ public class ControlCamara : MonoBehaviour
             mouseY * 2f - 1f
         );
 
+        // para que no se mueva la camara si el mouse esta muy cerca del centro de la pantalla
         if (mouseNormalized.magnitude < deadZone)
         {
             return;
         }
 
+        // normalizado para que no se mueva mas rapido si el mouse esta en la esquina de la pantalla
         mouseNormalized =
             Vector2.ClampMagnitude(
                 mouseNormalized,
@@ -68,6 +70,7 @@ public class ControlCamara : MonoBehaviour
         transform.position = newPosition;
     }
 
+    // para que la camara no se salga de los bounds
     private void ClampCamera(ref Vector3 position)
     {
         float cameraHeight =

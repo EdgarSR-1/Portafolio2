@@ -11,6 +11,6 @@ public class Puntaje : MonoBehaviour
     {
         puntos += puntosNum;
 
-        Debug.Log($"Puntos: {puntos}");
+        // Debug.Log($"Puntos: {puntos}");
     }
 }

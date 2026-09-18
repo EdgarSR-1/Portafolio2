@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AnimacionSpawnEnemigo : MonoBehaviour
 {
-    [Header("Animación para Spawn")]
+    // animación cuando salen
     [SerializeField] private float distancia = 2f;
     [SerializeField] private float duracion = 0.5f;
 
