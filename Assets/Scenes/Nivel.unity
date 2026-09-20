@@ -704,7 +704,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1430,6 +1430,63 @@ MonoBehaviour:
   cameraTransform: {fileID: 411968781}
   parallaxMultx: 0.6
   parallaxMulty: 0.6
+--- !u!1001 &943262708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3344624256648074901, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_Name
+      value: Volume (FishEye)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.40123
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.70748
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016770494853731782, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bb31a9c57dae8aa889104bec1d3e222, type: 3}
 --- !u!1 &955427941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,6 +1862,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1272927567752803188, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272927567752803188, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272927567752803188, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272927567752803188, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272927567752803188, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1489685153154959068, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
       propertyPath: m_fontSize
       value: 19
@@ -1997,6 +2074,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 411968780}
+    - target: {fileID: 5896314839907163034, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
+      propertyPath: m_UpdateRectTransformForStandalone
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7482354591019666811, guid: 3d751b96fc6d924358f8544378b838a0, type: 3}
       propertyPath: m_text
       value: 'Volver
@@ -3209,3 +3290,4 @@ SceneRoots:
   - {fileID: 376276079}
   - {fileID: 1555530628}
   - {fileID: 955427943}
+  - {fileID: 943262708}

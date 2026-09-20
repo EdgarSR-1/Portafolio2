@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae7264e743a7106f286940819d1f8ab3
+guid: ea43bd356a65e0f9ea91d1d0d34508e5
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - CozetteCrossedSevenVector
+  - Kitchen Sink
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
