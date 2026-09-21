@@ -95,6 +95,7 @@ public class Target : MonoBehaviour
         enemigo.enabled = false;
 
         gameManager.puntos.AgregarPuntos(puntosDar);
+        gameManager.logger.RegistrarEnemigoEliminado();
 
         StartCoroutine(Muerte());
     }

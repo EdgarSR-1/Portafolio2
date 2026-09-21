@@ -9,11 +9,14 @@ public class gameManager : MonoBehaviour
     public Timer timer { get; private set; }
     public DisparoControl disparo { get; private set; }
 
+    public LoggerDinamicas logger { get; private set; }
+
     private void Awake()
     {
         vidas = GetComponent<Vidas>();
         puntos = GetComponent<Puntaje>();
         timer = GetComponent<Timer>();
         disparo = GetComponent<DisparoControl>();
+        logger = GetComponent<LoggerDinamicas>();
     }
 }

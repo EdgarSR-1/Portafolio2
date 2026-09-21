@@ -9,6 +9,8 @@ public class GameOverManager : MonoBehaviour
     // resultados
     [SerializeField] private TextMeshProUGUI puntaje;
     [SerializeField] private TextMeshProUGUI tiempo;
+
+    private gameManager gameManager;
     
 
     private Timer timer;
@@ -16,6 +18,8 @@ public class GameOverManager : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = GetComponent<gameManager>();
+
         timer = GetComponent<Timer>();
         puntosManager = GetComponent<Puntaje>();
         gameOverPanel.SetActive(false);
@@ -41,6 +45,8 @@ public class GameOverManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("MejorTiempo", tiempoFinal);
         }
+
+        gameManager.logger.ExportarCSV(tiempoFinal);
 
         // para mostrar puntos finales y tiempo que sobrevivio el jugador
         puntaje.text = $"Puntos: {puntosFinal}";

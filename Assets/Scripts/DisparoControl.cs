@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class DisparoControl : MonoBehaviour
 {
+
+    private gameManager gameManager;
+
     [SerializeField] private Camera gameCamera;
 
     // sistema de balas
@@ -25,6 +28,11 @@ public class DisparoControl : MonoBehaviour
     [SerializeField] private AudioClip sonidoRecarga;
 
     private bool isReloading;
+
+    private void Awake()
+    {
+        gameManager = FindFirstObjectByType<gameManager>();
+    }
 
     private void Start()
     {
@@ -51,6 +59,7 @@ public class DisparoControl : MonoBehaviour
         if (municionActual <= 0)
         {
             StartCoroutine(Recarga());
+            gameManager.logger.RegistrarRecarga();
             return;
         }
 
@@ -61,6 +70,7 @@ public class DisparoControl : MonoBehaviour
         
         // Debug.Log($"Municion: {municionActual}/{maxAmmo}");
 
+        gameManager.logger.RegistrarDisparo();
         Disparo();
     }
 
