@@ -10,35 +10,50 @@ public class UI : MonoBehaviour
     // Vidas
     [SerializeField] private GameObject[] vidas;
 
-    // quite actualizar balas para poder controlar la animacion cuando recargas
-
+    // Quite actualizar balas para poder controlar
+    // la animación cuando recargas
     private gameManager gameManager;
 
     private void Start()
     {
         gameManager = FindFirstObjectByType<gameManager>();
+
+        // Suscribirse a los eventos
+        gameManager.timer.OnTiempoCambiado += ActualizarTiempo;
+        gameManager.puntos.OnPuntosCambiados += ActualizarPuntaje;
+        gameManager.vidas.OnVidasCambiadas += ActualizarVidas;
+
+        // Actualizar el estado inicial
+        ActualizarTiempo(gameManager.timer.getTime());
+        ActualizarPuntaje(gameManager.puntos.Puntos);
+        ActualizarVidas(gameManager.vidas.VidaActual);
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        ActualizarTiempo();
-        ActualizarPuntaje();
-        ActualizarVidas();
+        if (gameManager == null)
+        {
+            return;
+        }
+
+        // Dejar de observar los eventos
+        gameManager.timer.OnTiempoCambiado -= ActualizarTiempo;
+        gameManager.puntos.OnPuntosCambiados -= ActualizarPuntaje;
+        gameManager.vidas.OnVidasCambiadas -= ActualizarVidas;
     }
 
-    private void ActualizarTiempo()
+    private void ActualizarTiempo(string tiempo)
     {
-        tiempoTexto.text = $"Tiempo: {gameManager.timer.getTime()}";
-    }
-    private void ActualizarPuntaje()
-    {
-        puntosTexto.text = $"Puntos: {gameManager.puntos.Puntos}";
+        tiempoTexto.text = $"Tiempo: {tiempo}";
     }
 
-    private void ActualizarVidas()
+    private void ActualizarPuntaje(int puntos)
     {
-        int vidasActuales = gameManager.vidas.VidaActual;
+        puntosTexto.text = $"Puntos: {puntos}";
+    }
 
+    private void ActualizarVidas(int vidasActuales)
+    {
         for (int i = 0; i < vidas.Length; i++)
         {
             vidas[i].SetActive(i < vidasActuales);

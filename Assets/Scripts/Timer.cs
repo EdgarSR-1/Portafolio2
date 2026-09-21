@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class Timer : MonoBehaviour
 
     // para que otros scripts puedan solo ver el tiempo
     public float Tiempo => tiempo;
+
+    private int ultimoSegundo;
+
+    public event Action<string> OnTiempoCambiado;
 
     private void Start()
     {
@@ -18,6 +23,14 @@ public class Timer : MonoBehaviour
         if (!isRunning) { return; }
 
         tiempo += Time.deltaTime;
+
+        int segundoActual = Mathf.FloorToInt(tiempo);
+
+        if (segundoActual != ultimoSegundo)
+        {
+            ultimoSegundo = segundoActual;
+            OnTiempoCambiado?.Invoke(getTime());
+        }
     }
 
     private void StartTimer()

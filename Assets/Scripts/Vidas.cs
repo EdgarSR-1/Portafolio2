@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Vidas : MonoBehaviour
 {
@@ -12,10 +13,15 @@ public class Vidas : MonoBehaviour
     // pero no modificarla directamente
     public int VidaActual => vidaActual;
 
+
+    public event Action<int> OnVidasCambiadas;
+
     private void Awake()
     {
         vidaActual = vidasMax;
         gameOverManager = GetComponent<GameOverManager>();
+
+        OnVidasCambiadas?.Invoke(vidaActual);
     }
 
     public void TomarDaño()
@@ -24,6 +30,8 @@ public class Vidas : MonoBehaviour
 
         // para que la vida nunca sea negativa por si las dudas
         vidaActual = Mathf.Max(vidaActual, 0);
+
+        OnVidasCambiadas?.Invoke(vidaActual);
 
         // Debug.Log($"Daño al jugador. Vidas: {vidaActual}/{vidasMax}");
 

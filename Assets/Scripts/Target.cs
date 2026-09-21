@@ -3,32 +3,40 @@ using System.Collections;
 
 public class Target : MonoBehaviour
 {
-    // referencias para daño al jugador
+    // Referencias visuales
     [SerializeField] private SpriteRenderer spriteRenderer;
-    // para obtener el segundo sprite
     [SerializeField] private Sprite spriteCaida;
+
+    // Referencia a los sistemas principales
     private gameManager gameManager;
 
-    // para el ataque al jugador
+    // Configuración del ataque
     [SerializeField] private float tiempoAtaque = 5f;
     [SerializeField] private float warningAtaque = 2f;
 
-    // para cuando muere un enemigo
+    // Configuración de muerte
     [SerializeField] private float duracionCaida = 0.5f;
-    // [SerializeField] private float anguloCaida = 90f;
-    // private Puntaje puntosManager;
+
+    // Puntos
     [SerializeField] private int puntosDar = 100;
 
-    // sonido
+    // Sonido
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip sonidoDisparo;
 
+    // Collider
     private Collider2D enemigo;
 
-    private bool isDead = false;
-
+    // Color original
     private Color colorOrig;
-    private float tiempoVivo;
+
+    // Estado actual
+    private IEnemyState estadoActual;
+
+    // Propiedades para los estados
+    public float TiempoAtaque => tiempoAtaque;
+    public float WarningAtaque => warningAtaque;
+    public Color ColorOriginal => colorOrig;
 
     private void Awake()
     {
@@ -37,65 +45,57 @@ public class Target : MonoBehaviour
 
         colorOrig = spriteRenderer.color;
 
-        // necesito esto porque el enemigo es un prefab y no me
-        // deja agregarle el script que esta en gameManager
-        // manualmente
+        // El enemigo es un prefab y se instancia durante la partida
         gameManager = FindFirstObjectByType<gameManager>();
+    }
+
+    private void Start()
+    {
+        ChangeState(new EnemyNormalState(this));
     }
 
     private void Update()
     {
-        if(isDead) { return; }
-
-        UpdateTimerAtaque();
+        estadoActual?.Update();
     }
 
-    private void UpdateTimerAtaque()
+    public void ChangeState(IEnemyState nuevoEstado)
     {
-        tiempoVivo += Time.deltaTime;
+        estadoActual?.Exit();
 
-        float warningStart = tiempoAtaque - warningAtaque;
+        estadoActual = nuevoEstado;
 
-        if (tiempoVivo >= warningStart)
-        {
-            float warningProgreso =
-                (tiempoVivo - warningStart) / warningAtaque;
-            
-            spriteRenderer.color = Color.Lerp(
-                colorOrig, Color.red, warningProgreso
-            );
-        }
-
-        if (tiempoVivo >= tiempoAtaque)
-        {
-            Atacar();
-        }
+        estadoActual.Enter();
     }
 
-    private void Atacar()
+    public void SetColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+
+    public void Atacar()
     {
         audioSource.PlayOneShot(sonidoDisparo);
+
         gameManager.vidas.TomarDaño();
-
-        ResetTiempo();
-    }
-
-    private void ResetTiempo()
-    {
-        tiempoVivo = 0;
-        spriteRenderer.color = colorOrig;
     }
 
     public void Hit()
     {
-        if (isDead) { return; }
-
-        isDead = true;
+        if (estadoActual is EnemyDeadState)
+        {
+            return;
+        }
 
         enemigo.enabled = false;
 
         gameManager.puntos.AgregarPuntos(puntosDar);
 
+        ChangeState(new EnemyDeadState(this));
+    }
+
+    public void IniciarMuerte()
+    {
         StartCoroutine(Muerte());
     }
 
@@ -115,7 +115,9 @@ public class Target : MonoBehaviour
             float progreso = tiempo / duracionCaida;
 
             transform.position = Vector3.Lerp(
-                posicionInicial, posicionFinal, progreso
+                posicionInicial,
+                posicionFinal,
+                progreso
             );
 
             yield return null;
