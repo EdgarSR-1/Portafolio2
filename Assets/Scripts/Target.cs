@@ -82,7 +82,7 @@ public class Target : MonoBehaviour
 
     public void Hit()
     {
-        if (estadoActual is EnemyDeadState)
+        if (estadoActual is EnemyDefeatState)
         {
             return;
         }
@@ -91,7 +91,7 @@ public class Target : MonoBehaviour
 
         gameManager.puntos.AgregarPuntos(puntosDar);
 
-        ChangeState(new EnemyDeadState(this));
+        ChangeState(new EnemyDefeatState(this));
     }
 
     public void IniciarMuerte()

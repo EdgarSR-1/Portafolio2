@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyNormalState : IEnemyState
 {
+    // script para el estado normal del enemigo, implementa la interfaz IEnemyState
+    // usa el patrón de diseño State para manejar el comportamiento del enemigo no esta atacando
     private Target enemy;
     private float tiempo;
 
